@@ -1,11 +1,12 @@
-import React from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
-const Layout = () => {
+export default function Layout({ children }) {
   return (
     <div>
-      <h1>Layout</h1>
+      <Navbar />
+      {children}
+      <Footer />
     </div>
   );
-};
-
-export default Layout;
+}
