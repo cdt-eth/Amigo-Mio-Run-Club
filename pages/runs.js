@@ -1,22 +1,12 @@
 import Head from "next/head";
 import styled from "styled-components";
-import Image from "next/image";
 
 const Hero = styled.div`
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: top;
-  background: #fff;
-  /* border: 1px solid blue; */
-`;
-
-const Img = styled.div`
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10vh;
-  /* border: 1px solid red; */
+  background: #fff;
 `;
 
 const Heading = styled.div`
@@ -25,7 +15,7 @@ const Heading = styled.div`
   font-weight: 900;
 `;
 
-export default function Home() {
+export default function Runs() {
   return (
     <>
       <Head>
@@ -33,12 +23,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Img>
-        <Image src="/amrc.png" alt="amrc logo" width={100} height={70} />
-      </Img>
-
       <Hero>
-        <Heading>AMRC</Heading>
+        <Heading>Runs</Heading>
       </Hero>
     </>
   );
