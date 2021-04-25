@@ -32,11 +32,31 @@ const StyledLink = styled.a`
   }
 `;
 
+const StyledUser = styled.a`
+  padding: 0rem 2rem;
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 0rem;
+    margin-right: 5px;
+    /* border: 1px solid red; */
+  }
+`;
+
 const LoginButton = styled.li`
+  display: flex;
   list-style-type: none;
   cursor: pointer;
   height: 25px;
   /* border: 1px solid blue; */
+  padding: 0rem 1rem;
 
   &:hover {
     opacity: 0.5;
@@ -44,7 +64,7 @@ const LoginButton = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 0rem 2rem;
+    padding: 0rem 2em;
     height: 25px;
   }
 `;
@@ -53,7 +73,8 @@ export default function Navbar() {
   const { user, login } = useContext(AuthContext);
   // console.log("Welcome " + user.user_metadata.full_name + "!");
 
-  console.log(user);
+  console.log({ user });
+
   return (
     <Nav>
       <div>
@@ -74,14 +95,21 @@ export default function Navbar() {
         <Link href="/contact" passHref>
           <StyledLink>Contact</StyledLink>
         </Link>
-        <Link href="/runs" passHref>
-          <StyledLink>Runs</StyledLink>
-        </Link>
+
+        {user !== null ? (
+          <Link href="/runs" passHref>
+            <StyledLink>Runs</StyledLink>
+          </Link>
+        ) : null}
       </div>
 
-      <LoginButton>
-        {/* <li onClick={login}>Login</li> */}
-        <img className="icon" src="user.png" onClick={login} />
+      {/* <li onClick={login}>Login</li> */}
+
+      <LoginButton onClick={login}>
+        {user !== null ? (
+          <StyledUser>{user.user_metadata.full_name}</StyledUser>
+        ) : null}
+        <img className="icon" src="user.png" />
       </LoginButton>
     </Nav>
   );
