@@ -7,6 +7,7 @@ const FooterSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-style: italic;
 `;
 
 const Footer = () => {

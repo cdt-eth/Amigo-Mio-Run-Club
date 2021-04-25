@@ -11,16 +11,42 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
+
+  @media only screen and (max-width: 768px) {
+    flex: wrap;
+    padding: 0px 20px;
+  }
 `;
 
 const StyledLink = styled.a`
   padding: 0rem 2rem;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 0rem;
+    /* border: 1px solid red; */
+  }
 `;
 
 const LoginButton = styled.li`
-  padding: 0rem 2rem;
   list-style-type: none;
   cursor: pointer;
+  height: 25px;
+  /* border: 1px solid blue; */
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  @media only screen and (min-width: 768px) {
+    padding: 0rem 2rem;
+    height: 25px;
+  }
 `;
 
 export default function Navbar() {
@@ -32,10 +58,13 @@ export default function Navbar() {
     <Nav>
       <div>
         <Link href="/" passHref>
-          <StyledLink>AMRC</StyledLink>
+          <StyledLink>
+            <img className="icon" src="amrc-white.png" />
+          </StyledLink>
         </Link>
       </div>
-      <div>
+
+      <div className="midNav">
         <Link href="/" passHref>
           <StyledLink>Home</StyledLink>
         </Link>
@@ -49,8 +78,10 @@ export default function Navbar() {
           <StyledLink>Runs</StyledLink>
         </Link>
       </div>
+
       <LoginButton>
-        <li onClick={login}>Login</li>
+        {/* <li onClick={login}>Login</li> */}
+        <img className="icon" src="user.png" onClick={login} />
       </LoginButton>
     </Nav>
   );

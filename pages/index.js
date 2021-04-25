@@ -21,8 +21,12 @@ const Img = styled.div`
 
 const Heading = styled.div`
   color: #000;
-  font-size: 10rem;
   font-weight: 900;
+  font-size: 5rem;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 10rem;
+  }
 `;
 
 export default function Home() {

@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.midNav a {
+  margin: 0px 5px;
+}
+
+.icon {
+  height: 25px;
+  cursor: pointer;
+
+  @media only screen and (max-width: 768px) {
+    height: 25px;
+  }
+}

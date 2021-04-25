@@ -202,7 +202,7 @@ var external_styled_components_default = /*#__PURE__*/__webpack_require__.n(exte
 const FooterSection = external_styled_components_default.a.div.withConfig({
   displayName: "Footer__FooterSection",
   componentId: "sc-1tgiv0a-0"
-})(["background:#000;color:#fff;height:60px;display:flex;justify-content:center;align-items:center;"]);
+})(["background:#000;color:#fff;height:60px;display:flex;justify-content:center;align-items:center;font-style:italic;"]);
 
 const Footer = () => {
   return /*#__PURE__*/Object(jsx_runtime_["jsx"])(FooterSection, {
@@ -290,15 +290,15 @@ const AuthContextProvider = ({
 const Nav = external_styled_components_default.a.nav.withConfig({
   displayName: "Navbar__Nav",
   componentId: "prfwg4-0"
-})(["height:80px;background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;list-style-type:none;"]);
+})(["height:80px;background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;list-style-type:none;@media only screen and (max-width:768px){flex:wrap;padding:0px 20px;}"]);
 const StyledLink = external_styled_components_default.a.a.withConfig({
   displayName: "Navbar__StyledLink",
   componentId: "prfwg4-1"
-})(["padding:0rem 2rem;"]);
+})(["padding:0rem 2rem;&:hover{opacity:0.5;transition:0.3s;}@media only screen and (max-width:768px){padding:0rem;}"]);
 const LoginButton = external_styled_components_default.a.li.withConfig({
   displayName: "Navbar__LoginButton",
   componentId: "prfwg4-2"
-})(["padding:0rem 2rem;list-style-type:none;cursor:pointer;"]);
+})(["list-style-type:none;cursor:pointer;height:25px;&:hover{opacity:0.5;transition:0.3s;}@media only screen and (min-width:768px){padding:0rem 2rem;height:25px;}"]);
 function Navbar() {
   const {
     user,
@@ -312,10 +312,14 @@ function Navbar() {
         href: "/",
         passHref: true,
         children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(StyledLink, {
-          children: "AMRC"
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+            className: "icon",
+            src: "amrc-white.png"
+          })
         })
       })
     }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+      className: "midNav",
       children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
         href: "/",
         passHref: true,
@@ -342,9 +346,10 @@ function Navbar() {
         })
       })]
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(LoginButton, {
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-        onClick: login,
-        children: "Login"
+      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+        className: "icon",
+        src: "user.png",
+        onClick: login
       })
     })]
   });
