@@ -23,7 +23,7 @@ export default function Runs() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>AMRC: Runs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

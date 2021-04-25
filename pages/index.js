@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Amigo Mio Run Club</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
