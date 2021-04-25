@@ -10,7 +10,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  list
+  list-style-type: none;
 `;
 
 const StyledLink = styled.a`
@@ -25,7 +25,7 @@ const LoginButton = styled.li`
 
 export default function Navbar() {
   const { user, login } = useContext(AuthContext);
-  console.log("Welcome " + user.user_metadata.full_name + "!");
+  // console.log("Welcome " + user.user_metadata.full_name + "!");
 
   console.log(user);
   return (
