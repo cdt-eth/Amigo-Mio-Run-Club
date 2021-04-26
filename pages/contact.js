@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 
 const Hero = styled.div`
-  height: 90vh;
+  height: 81vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>AMRC: Contact</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

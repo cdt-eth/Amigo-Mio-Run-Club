@@ -86,9 +86,9 @@ export default function Navbar() {
       </div>
 
       <div className="midNav">
-        <Link href="/" passHref>
+        {/* <Link href="/" passHref>
           <StyledLink>Home</StyledLink>
-        </Link>
+        </Link> */}
         <Link href="/about" passHref>
           <StyledLink>About</StyledLink>
         </Link>

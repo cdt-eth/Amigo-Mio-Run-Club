@@ -8,6 +8,9 @@ const FooterSection = styled.div`
   justify-content: center;
   align-items: center;
   font-style: italic;
+  display: flex;
+  min-height: 10vh;
+  flex-direction: column;
 `;
 
 const Footer = () => {
