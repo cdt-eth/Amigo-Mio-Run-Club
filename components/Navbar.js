@@ -22,7 +22,8 @@ const StyledLink = styled.a`
   padding: 0rem 2rem;
 
   &:hover {
-    opacity: 0.5;
+    color: orange;
+    /* opacity: 0.5; */
     transition: 0.3s;
   }
 
