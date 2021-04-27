@@ -71,7 +71,7 @@ const LoginButton = styled.li`
 `;
 
 export default function Navbar() {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
   // console.log("Welcome " + user.user_metadata.full_name + "!");
 
   console.log({ user });
@@ -110,8 +110,10 @@ export default function Navbar() {
         {user !== null ? (
           <StyledUser>{user.user_metadata.full_name}</StyledUser>
         ) : null}
-        <img className="icon" src="user.png" />
+        {/* <img className="icon" src="user.png" /> */}
+        Login
       </LoginButton>
+      <LoginButton onClick={logout}>Logout</LoginButton>
     </Nav>
   );
 }

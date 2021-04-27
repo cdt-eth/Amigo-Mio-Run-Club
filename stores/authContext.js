@@ -21,8 +21,22 @@ export const AuthContextProvider = ({ children }) => {
       console.log("login event");
     });
 
+    // event listener for logging out
+    // we reset the user to null, the default state
+    // log out the message for clarity
+    netlifyIdentity.on("logout", () => {
+      setUser(null);
+      console.log("logout event");
+    });
+
     // init netlify identity connection
     netlifyIdentity.init();
+
+    // unregister event listener if DOM remounts
+    return () => {
+      netlifyIdentity.off("login");
+      netlifyIdentity.off("logout");
+    };
   }, []);
   // fire function once because of []
   // we just need once to verify user
@@ -32,11 +46,18 @@ export const AuthContextProvider = ({ children }) => {
     netlifyIdentity.open();
   };
 
+  // run native logout functionality
+  const logout = () => {
+    netlifyIdentity.logout();
+  };
+
   const loginInfo = {
     // user: user,
     // login: login,
+    // logout: logout,
     user,
     login,
+    logout,
     // since both property & value pairs are the same, we don't have to repeat the name
   };
 
