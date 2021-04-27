@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Image from "next/image";
+import { createClient } from "contentful";
 
 const Hero = styled.div`
   height: 60vh;
@@ -29,7 +30,29 @@ const Heading = styled.div`
   }
 `;
 
-export default function Home() {
+// connect to our Contentful account
+export async function getStaticProps() {
+  // Contentful credentials
+  const client = createClient({
+    // next.js adds these to our `process` object so we can access them
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "blog" });
+
+  return {
+    props: {
+      blogs: res.items,
+    },
+  };
+}
+
+export default function Home({ blogs }) {
+  console.log("this ran - blogs:");
+  // console.log("blogs:", blog);
+  console.log(blogs);
+
   return (
     <>
       <Head>
