@@ -85,12 +85,15 @@ export default function Blog({ blogs }) {
         <Accent>The Blog</Accent> is a place to document runs.
         <br />
         <br />
-        {blogs.map((blog) => (
+        {blogs[0].fields.body.content[0].content[0].value}
+        {/* {blogs.map((blog) => (
           <>
-            <Accent>{blog.fields.title}</Accent>
-            <p>{blog.fields.body.content[0].content[0].value}</p>
+            <Accent key={blog.sys.id}>{blog.fields.title}</Accent>
+            <div key={blog.sys.id}>
+              {blog.fields.body.content[0].content[0].value}
+            </div>
           </>
-        ))}
+        ))} */}
         <br />
         <br />
         <Accent>#ConTodo</Accent>
