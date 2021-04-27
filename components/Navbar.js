@@ -104,16 +104,13 @@ export default function Navbar() {
         ) : null}
       </div>
 
-      {/* <li onClick={login}>Login</li> */}
-
-      <LoginButton onClick={login}>
-        {user !== null ? (
-          <StyledUser>{user.user_metadata.full_name}</StyledUser>
-        ) : null}
-        {/* <img className="icon" src="user.png" /> */}
-        Login
-      </LoginButton>
-      <LoginButton onClick={logout}>Logout</LoginButton>
+      {!user && <LoginButton onClick={login}>Login</LoginButton>}
+      {user && (
+        <LoginButton onClick={logout}>
+          Logout, {user.user_metadata.full_name}
+        </LoginButton>
+      )}
+      {/* <img className="icon" src="user.png" /> */}
     </Nav>
   );
 }
