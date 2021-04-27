@@ -1,34 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Amigo Mio Run Club
 
-## Getting Started
+This is the home of the running club I started in my city. I'm building this site with [Next.js](https://nextjs.org/) (a React framework), [CSS Styled Components](https://styled-components.com/), [Contentful](https://www.contentful.com/) (a headless CMS for our blog posts), and Netlify for [user authentication](https://docs.netlify.com/visitor-access/identity/) & [website deployment](https://www.netlify.com/).
 
-First, run the development server:
+I'm going to transparently talk about my working to-dos and publicly explain what I'm working. I'll add ~~strikethroughs~~ when I've completed a todo.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Running Todos:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- username validation (can I add ontop of Netlify Identity?)
+  - no special characters
+  - max length of 15
+  - numbers okay (regex: `/^[a-z0-9]+$/i`)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![issue screenshot](public/issue1.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.JS: redirect pages based on `user state`
+  - if `user` is on page only viewable when logged-in and they then logout, we should be redirect back to the homepage.
