@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import AuthContext from "../stores/authContext";
+import { useRouter } from "next/router";
 
 const Hero = styled.div`
   height: 71vh;
@@ -47,7 +48,18 @@ const Accent = styled.span`
 `;
 
 export default function Runs() {
-  const { user, login } = useContext(AuthContext);
+  const { user, authReady } = useContext(AuthContext);
+
+  // next.js router
+  const router = useRouter();
+
+  useEffect(() => {
+    // redirect them back to the homepage
+    if (!user) {
+      router.push("/");
+      console.log("logged out -> home page");
+    }
+  }, [user]);
 
   return (
     <>
@@ -55,7 +67,6 @@ export default function Runs() {
         <title>AMRC: Runs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Hero>
         <Heading>
           <Accent>
