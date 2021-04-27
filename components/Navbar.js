@@ -74,7 +74,7 @@ export default function Navbar() {
   const { user, login, logout, authReady } = useContext(AuthContext);
   // console.log("Welcome " + user.user_metadata.full_name + "!");
 
-  console.log({ user });
+  // console.log({ user });
 
   return (
     <Nav>
