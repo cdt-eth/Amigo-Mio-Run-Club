@@ -71,7 +71,7 @@ const LoginButton = styled.li`
 `;
 
 export default function Navbar() {
-  const { user, login, logout } = useContext(AuthContext);
+  const { user, login, logout, authReady } = useContext(AuthContext);
   // console.log("Welcome " + user.user_metadata.full_name + "!");
 
   console.log({ user });
@@ -86,29 +86,30 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="midNav">
-        {/* <Link href="/" passHref>
-          <StyledLink>Home</StyledLink>
-        </Link> */}
-        <Link href="/about" passHref>
-          <StyledLink>About</StyledLink>
-        </Link>
-        <Link href="/contact" passHref>
-          <StyledLink>Contact</StyledLink>
-        </Link>
+      {authReady && (
+        <>
+          <div className="midNav">
+            <Link href="/about" passHref>
+              <StyledLink>About</StyledLink>
+            </Link>
+            <Link href="/contact" passHref>
+              <StyledLink>Contact</StyledLink>
+            </Link>
 
-        {user !== null ? (
-          <Link href="/runs" passHref>
-            <StyledLink>Runs</StyledLink>
-          </Link>
-        ) : null}
-      </div>
+            {user !== null ? (
+              <Link href="/runs" passHref>
+                <StyledLink>Runs</StyledLink>
+              </Link>
+            ) : null}
+          </div>
 
-      {!user && <LoginButton onClick={login}>Login</LoginButton>}
-      {user && (
-        <LoginButton onClick={logout}>
-          Logout, {user.user_metadata.full_name}
-        </LoginButton>
+          {!user && <LoginButton onClick={login}>Login</LoginButton>}
+          {user && (
+            <LoginButton onClick={logout}>
+              Logout, {user.user_metadata.full_name}
+            </LoginButton>
+          )}
+        </>
       )}
       {/* <img className="icon" src="user.png" /> */}
     </Nav>

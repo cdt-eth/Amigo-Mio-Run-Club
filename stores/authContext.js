@@ -11,6 +11,7 @@ const AuthContext = createContext({
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
     //   login event listener
@@ -27,6 +28,13 @@ export const AuthContextProvider = ({ children }) => {
     netlifyIdentity.on("logout", () => {
       setUser(null);
       console.log("logout event");
+    });
+
+    // if a user is logged in and we refresh the page, we don't want it to flash the logged out state (our ternary state in NavBar), while we wait for the crendentials to be validated by Netlify
+    netlifyIdentity.on("init", (user) => {
+      setUser(user);
+      setAuthReady(true);
+      console.log("init event");
     });
 
     // init netlify identity connection
@@ -58,6 +66,7 @@ export const AuthContextProvider = ({ children }) => {
     user,
     login,
     logout,
+    authReady,
     // since both property & value pairs are the same, we don't have to repeat the name
   };
 
