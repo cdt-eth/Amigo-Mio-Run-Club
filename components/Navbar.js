@@ -92,6 +92,11 @@ export default function Navbar() {
             <Link href="/about" passHref>
               <StyledLink>About</StyledLink>
             </Link>
+
+            <Link href="/blog/" passHref>
+              <StyledLink>Blog</StyledLink>
+            </Link>
+
             <Link href="/contact" passHref>
               <StyledLink>Contact</StyledLink>
             </Link>
