@@ -75,6 +75,12 @@ export default function Runs() {
     }
   }, [user]);
 
+  useEffect(() => {
+    fetch("../functions/runData.js")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
+
   return (
     <>
       <Head>
