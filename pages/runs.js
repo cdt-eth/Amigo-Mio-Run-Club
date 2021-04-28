@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
-import AuthContext from "../stores/authContext";
+import AuthContext, { AuthContextProvider } from "../stores/authContext";
 import { useRouter } from "next/router";
 
 const Hero = styled.div`
@@ -67,19 +67,28 @@ export default function Runs() {
   // next.js router
   const router = useRouter();
 
-  useEffect(() => {
-    // redirect them back to the homepage
-    if (!user) {
-      router.push("/");
-      console.log("logged out -> home page");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   // redirect them back to the homepage
+  //   if (!user) {
+  //     router.push("/");
+  //     console.log("logged out -> home page");
+  //   }
+  // }, [user]);
 
   useEffect(() => {
-    fetch("../functions/runData.js")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
+    if (authReady) {
+      fetch(
+        "/.netlify/functions/runData",
+        user && {
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  }, [user, authReady]);
 
   return (
     <>
