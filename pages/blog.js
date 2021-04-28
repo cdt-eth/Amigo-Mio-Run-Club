@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
 import { createClient } from "contentful";
+import BlogPost from "../components/BlogPost";
 
 const Hero = styled.div`
   height: 71vh;
@@ -27,7 +28,7 @@ const Heading = styled.div`
   }
 `;
 
-const Body = styled.p`
+const Body = styled.div`
   color: #000;
   font-weight: 900;
   font-size: 5rem;
@@ -99,15 +100,9 @@ export default function Blog({ blogs }) {
         <Accent>The Blog</Accent> is a place to document runs.
         <br />
         <br />
-        {blogs[0].fields.body.content[0].content[0].value}
-        {/* {blogs.map((blog) => (
-          <>
-            <Accent key={blog.sys.id}>{blog.fields.title}</Accent>
-            <div key={blog.sys.id}>
-              {blog.fields.body.content[0].content[0].value}
-            </div>
-          </>
-        ))} */}
+        {blogs.map((blog) => (
+          <BlogPost key={blog.sys.id} blog={blog} />
+        ))}
         <br />
         <br />
       </Body>

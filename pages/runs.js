@@ -29,7 +29,7 @@ const Heading = styled.div`
   }
 `;
 
-const Body = styled.p`
+const Body = styled.div`
   color: #000;
   font-weight: 900;
   font-size: 5rem;
