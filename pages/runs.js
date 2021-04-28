@@ -47,6 +47,20 @@ const Accent = styled.span`
   font-style: italic;
 `;
 
+const Tag = styled.span`
+  color: orange;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 5rem;
+  padding-right: 25px;
+  margin: 20px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+  }
+`;
+
 export default function Runs() {
   const { user, authReady } = useContext(AuthContext);
 
@@ -86,8 +100,9 @@ export default function Runs() {
         run went or anything <Accent>memorable</Accent> from the morning.
         <br />
         <br />
-        <Accent>#ConTodo</Accent>
       </Body>
+
+      <Tag>#ConTodo</Tag>
     </>
   );
 }

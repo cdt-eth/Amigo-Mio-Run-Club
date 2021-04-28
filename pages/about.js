@@ -9,6 +9,7 @@ const Hero = styled.div`
   background: #fff;
   margin: 20px;
   /* border: 1px solid red; */
+
   @media only screen and (max-width: 768px) {
     height: 55vh;
   }
@@ -44,6 +45,20 @@ const Accent = styled.span`
   font-style: italic;
 `;
 
+const Tag = styled.span`
+  color: orange;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 5rem;
+  padding-right: 25px;
+  margin: 20px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+  }
+`;
+
 export default function About() {
   return (
     <>
@@ -68,8 +83,9 @@ export default function About() {
         for both.
         <br />
         <br />
-        <Accent>#ConTodo</Accent>
       </Body>
+
+      <Tag>#ConTodo</Tag>
     </>
   );
 }

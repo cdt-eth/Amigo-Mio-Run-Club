@@ -45,6 +45,20 @@ const Accent = styled.span`
   font-style: italic;
 `;
 
+const Tag = styled.span`
+  color: orange;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 5rem;
+  padding-right: 25px;
+  margin: 20px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+  }
+`;
+
 // connect to our Contentful account
 export async function getStaticProps() {
   // Contentful credentials
@@ -55,6 +69,8 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "blog" });
+  console.log("Space = ", process.env.CONTENTFUL_SPACE_ID);
+  console.log("Access =", process.env.CONTENTFUL_ACCESS_KEY);
 
   return {
     props: {
@@ -96,8 +112,9 @@ export default function Blog({ blogs }) {
         ))} */}
         <br />
         <br />
-        <Accent>#ConTodo</Accent>
       </Body>
+
+      <Tag>#ConTodo</Tag>
     </>
   );
 }
