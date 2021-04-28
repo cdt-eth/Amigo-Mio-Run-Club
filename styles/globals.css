@@ -35,3 +35,41 @@ a {
   font-weight: 700;
   font-size: 4rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .postImg {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 250px !important;
+    /* border: 2px solid blue; */
+  }
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px 60px;
+  /* border: 1px solid red; */
+  margin: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .blogGrid {
+    grid-template-columns: 1fr;
+  }
+  .blogPost {
+    margin-bottom: 45px;
+  }
+}
+
+.ReadButton {
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 13px;
+}
+
+.ReadButton:hover {
+  color: orange;
+  transition: 0.3s;
+}

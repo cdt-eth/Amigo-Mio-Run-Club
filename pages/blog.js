@@ -89,24 +89,23 @@ export default function Blog({ blogs }) {
         <title>AMRC: About</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Hero>
         <Heading>
           <Accent>Blog</Accent> AMRC
         </Heading>
       </Hero>
-
       <Body>
         <Accent>The Blog</Accent> is a place to document runs.
-        <br />
-        <br />
+      </Body>
+      <br />
+      <br />
+      <div className="blogGrid">
         {blogs.map((blog) => (
           <BlogPost key={blog.sys.id} blog={blog} />
         ))}
-        <br />
-        <br />
-      </Body>
-
+      </div>
+      <br />
+      <br />
       <Tag>#ConTodo</Tag>
     </>
   );

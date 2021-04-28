@@ -2,6 +2,7 @@ module.exports = {
   images: {
     domains: ["images.ctfassets.net"],
   },
+
   // exportPathMap: async function (
   //   defaultPathMap,
   //   { dev, dir, outDir, distDir, buildId }

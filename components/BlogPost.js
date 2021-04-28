@@ -5,31 +5,55 @@ import styled from "styled-components";
 export default function BlogPost({ blog }) {
   const { title, slug, runners, thumbnail } = blog.fields;
 
-  const myLoader = ({ src, width, quality }) => {
-    return `https:${src}/?w=${width}&q=${quality || 75}`;
-  };
+  //   const myLoader = ({ src, width, quality }) => {
+  //     return `${src}?w=${width}&q=${quality || 75}`;
+  //   };
 
-  //   const Runners = styled.div`
-  //     color: #000;
-  //     font-weight: 400;
-  //     font-size: 2rem;
-  //     padding-right: 25px;
-  //     /* margin: 20px; */
+  const Runners = styled.div`
+    color: #000;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-right: 25px;
+    margin-bottom: 10px;
+    margin-bottom: 25px;
 
-  //     @media only screen and (max-width: 768px) {
-  //       font-size: 1.7rem;
-  //       line-height: 2.6rem;
-  //     }
-  //   `;
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+      line-height: 2.6rem;
+      margin-bottom: 10px;
+    }
+  `;
+
+  const BlogTitle = styled.h1`
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 10px 0px;
+
+    /* @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+      line-height: 2.6rem;
+    } */
+  `;
 
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="blogPost">
+      <img
+        className="postImg"
+        src={`https:${thumbnail.fields.file.url}`}
+        style={{ objectFit: "cover", height: 400, width: "100%" }}
+      />
+
+      <BlogTitle>{title}</BlogTitle>
+
+      <Runners>
+        <b>Runners:</b> {runners + " "}{" "}
+      </Runners>
+
       <Link href={`/blogs/${slug}`}>
-        <a>Read More</a>
+        <a className="ReadButton">Read More</a>
       </Link>
 
-      <p>{runners + " "} </p>
+      {/* <p style={{ fontSize: 25 }}>{runners + " "} </p> */}
 
       {/* <Image
         src={`https:${thumbnail.fields.file.url}`}
@@ -37,12 +61,12 @@ export default function BlogPost({ blog }) {
         height={thumbnail.fields.file.details.image.height}
       /> */}
 
-      {/* <Image
-        loader={myLoader}
-        src={`${thumbnail.fields.file.url}`}
-        width={thumbnail.fields.file.details.image.width}
-        height={thumbnail.fields.file.details.image.height}
-      /> */}
+      {/*    <Image
+         loader={myLoader}
+         src={`https:${thumbnail.fields.file.url}`}
+         width={thumbnail.fields.file.details.image.width}
+         height={thumbnail.fields.file.details.image.height}
+       /> */}
     </div>
   );
 }
