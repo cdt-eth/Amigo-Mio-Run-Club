@@ -44,6 +44,7 @@ const Body = styled.div`
 const Accent = styled.span`
   color: orange !important;
   font-style: italic;
+  padding-right: 5px;
 `;
 
 const Tag = styled.span`

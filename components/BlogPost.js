@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import Image from "next/image";
 
 export default function BlogPost({ blog }) {
-  const { title, slug, runners, thumbnail } = blog.fields;
+  const { title, slug, runners, thumbnail, miles } = blog.fields;
 
   //   const myLoader = ({ src, width, quality }) => {
   //     return `${src}?w=${width}&q=${quality || 75}`;
@@ -13,9 +13,24 @@ export default function BlogPost({ blog }) {
     color: #000;
     font-weight: 400;
     font-size: 1rem;
+    /* padding-right: 25px; */
+    /* margin-bottom: 10px; */
+    /* margin-bottom: 25px; */
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+      /* line-height: 2.6rem; */
+      /* margin-bottom: 10px; */
+    }
+  `;
+
+  const Miles = styled.div`
+    color: #000;
+    font-weight: 400;
+    font-size: 1rem;
     padding-right: 25px;
-    margin-bottom: 10px;
     margin-bottom: 25px;
+    /* margin-bottom: 5px; */
 
     @media only screen and (max-width: 768px) {
       font-size: 1rem;
@@ -34,6 +49,7 @@ export default function BlogPost({ blog }) {
       line-height: 2.6rem;
     } */
   `;
+  console.log(runners);
 
   return (
     <div className="blogPost">
@@ -46,8 +62,15 @@ export default function BlogPost({ blog }) {
       <BlogTitle>{title}</BlogTitle>
 
       <Runners>
-        <b>Runners:</b> {runners + " "}{" "}
+        <b>Runners: </b>
+        {runners.join(", ")}
       </Runners>
+
+      <Miles>
+        <b>Miles: </b> {miles}
+      </Miles>
+
+      {/* <Runners></Runners> */}
 
       <Link href={`/blogs/${slug}`}>
         <a className="ReadButton">Read More</a>
