@@ -3,12 +3,16 @@ import styled from "styled-components";
 // import Image from "next/image";
 
 const Hero = styled.div`
-  height: 60vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: top;
   background: #fff;
   /* border: 1px solid blue; */
+
+  @media only screen and (max-width: 768px) {
+    height: 20vh;
+  }
 `;
 
 const Img = styled.div`
@@ -26,6 +30,34 @@ const Heading = styled.div`
 
   @media only screen and (min-width: 768px) {
     font-size: 10rem;
+  }
+`;
+
+const Body = styled.div`
+  color: #000;
+  font-weight: 700;
+  font-size: 5rem;
+  margin: 20px;
+  /* justify-content: center;
+  align-items: center; */
+  text-align: center;
+  margin-bottom: 50px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    margin-bottom: 150px;
+  }
+`;
+
+const Tag = styled.span`
+  color: orange;
+  text-align: center;
+  font-size: 4rem;
+  font-style: italic;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -50,11 +82,18 @@ export default function Home() {
           height={70}
         /> */}
         {/* <Image src="/amrc.png" alt="amrc logo" width={100} height={70} /> */}
+        <img src="/amrc.png" alt="amrc logo" width={150} height={"auto"} />
       </Img>
 
       <Hero>
         <Heading>AMRC</Heading>
       </Hero>
+
+      <Body>
+        Run club based in Athens, GA
+        <br />
+        <Tag>#ConTodo</Tag>
+      </Body>
     </>
   );
 }
