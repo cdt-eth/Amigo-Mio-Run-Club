@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import Image from "next/image";
+// import Image from "next/image";
 
 const Hero = styled.div`
   height: 60vh;
@@ -30,6 +30,10 @@ const Heading = styled.div`
 `;
 
 export default function Home() {
+  const myLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
+
   return (
     <>
       <Head>
@@ -38,7 +42,14 @@ export default function Home() {
       </Head>
 
       <Img>
-        <Image src="/amrc.png" alt="amrc logo" width={100} height={70} />
+        {/* <Image
+          loader={myLoader}
+          src="/amrc.png"
+          alt="amrc logo"
+          width={100}
+          height={70}
+        /> */}
+        {/* <Image src="/amrc.png" alt="amrc logo" width={100} height={70} /> */}
       </Img>
 
       <Hero>
