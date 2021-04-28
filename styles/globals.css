@@ -53,6 +53,16 @@ a {
   margin: 20px;
 }
 
+.blogPost {
+  padding: 20px;
+  padding-bottom: 30px;
+  background: #fafafa;
+  border-radius: 6px;
+  box-shadow: 0 30px 60px -12px rgb(50 50 93 / 10%),
+    0 18px 36px -18px rgb(0 0 0 / 20%), 0 -12px 36px -8px rgb(0 0 0 / 10%);
+  transition: 0.2s ease-out;
+}
+
 @media only screen and (max-width: 768px) {
   .blogGrid {
     grid-template-columns: 1fr;
@@ -66,7 +76,7 @@ a {
   background: black;
   color: white;
   padding: 10px;
-  border-radius: 13px;
+  border-radius: 6px;
 }
 
 .ReadButton:hover {
