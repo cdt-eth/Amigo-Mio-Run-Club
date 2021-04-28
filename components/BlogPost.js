@@ -49,7 +49,7 @@ export default function BlogPost({ blog }) {
       line-height: 2.6rem;
     } */
   `;
-  console.log(runners);
+  // console.log(runners);
 
   return (
     <div className="blogPost">
@@ -72,7 +72,7 @@ export default function BlogPost({ blog }) {
 
       {/* <Runners></Runners> */}
 
-      <Link href={`/blogs/${slug}`}>
+      <Link href={`/blog/${slug}`}>
         <a className="ReadButton">Read More</a>
       </Link>
 

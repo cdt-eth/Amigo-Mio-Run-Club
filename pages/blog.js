@@ -82,7 +82,7 @@ export async function getStaticProps() {
 export default function Blog({ blogs }) {
   // pass in our props
   // log it for confirmation
-  console.log(blogs);
+  // console.log(blogs);
 
   return (
     <>
