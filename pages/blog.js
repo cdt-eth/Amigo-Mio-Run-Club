@@ -69,8 +69,6 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "blog" });
-  console.log("Space = ", process.env.CONTENTFUL_SPACE_ID);
-  console.log("Access =", process.env.CONTENTFUL_ACCESS_KEY);
 
   return {
     props: {
