@@ -11,6 +11,7 @@ const FooterSection = styled.div`
   display: flex;
   min-height: 15vh;
   flex-direction: column;
+  margin-top: 25px;
 
   @media only screen and (max-width: 768px) {
     padding: 10px;
@@ -30,7 +31,6 @@ const Footer = () => {
         <img src="ig.png" style={{ height: 25 }} alt="ig-logo" />
       </a>{" "}
       <p style={{ marginTop: 10 }}>
-        {/* Amigo Mio Run Club, Ltd. • 2021 • All Rights Reserved. •{"  "} */}
         <b>Amigo Mio Run Club,</b> <em>All Rights Reserved</em>
       </p>
     </FooterSection>
