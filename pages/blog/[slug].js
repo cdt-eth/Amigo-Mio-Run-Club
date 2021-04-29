@@ -40,19 +40,26 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogContent({ blog }) {
-  const { title, featuredImage, method } = blog.fields;
+  const { title, featuredImage, body, miles, runners } = blog.fields;
 
-  console.log(blog);
+  // console.log(blog);
+  // console.log(body);
 
   return (
-    <div style={{ height: 800, margin: 20 }}>
+    <div style={{ height: "100%", margin: 20 }}>
       <h1>{title}</h1>
+
+      <h2>{miles} miles</h2>
+
       <img
         className="postImg"
         src={`https:${featuredImage.fields.file.url}`}
         style={{ objectFit: "cover", height: 400, width: "100%" }}
       />
-      <div>{documentToReactComponents(method)}</div>
+
+      <h4>Runners: {runners.join(", ")}</h4>
+
+      <div>{documentToReactComponents(body)}</div>
     </div>
   );
 }
