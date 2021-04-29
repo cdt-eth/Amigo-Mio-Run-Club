@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Loading from "../../components/Loading";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -22,7 +23,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -40,10 +41,9 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogContent({ blog }) {
-  const { title, featuredImage, body, miles, runners } = blog.fields;
+  if (!blog) return <Loading />;
 
-  // console.log(blog);
-  // console.log(body);
+  const { title, featuredImage, body, miles, runners } = blog.fields;
 
   return (
     <div style={{ height: "100%", margin: 20 }}>
