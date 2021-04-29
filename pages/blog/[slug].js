@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
     return {
       redirect: {
         destination: "/",
-        permanent: false,
+        permanent: true,
       },
     };
   }
@@ -50,7 +50,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogContent({ blog }) {
-  if (!blog) return <Loading />;
+  // if (!blog) return <Loading />;
 
   const { title, featuredImage, body, miles, runners } = blog.fields;
 

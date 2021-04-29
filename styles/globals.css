@@ -83,24 +83,3 @@ a {
   color: orange;
   transition: 0.3s;
 }
-
-.loading {
-  max-width: 1200px;
-  margin: 20px auto;
-}
-.loading > div {
-  background: lightgray;
-  border-radius: 4px;
-  margin: 20px 0;
-}
-.loading-feature {
-  padding: 12% 0;
-}
-.loading-title {
-  padding: 15px 0;
-  max-width: 500px;
-}
-.loading-body {
-  padding: 8px 0;
-  max-width: 1000px;
-}
