@@ -101,11 +101,15 @@ export default function Navbar() {
               <StyledLink>Contact</StyledLink>
             </Link>
 
-            {user !== null ? (
+            <Link href="/runs" passHref>
+              <StyledLink>Runs</StyledLink>
+            </Link>
+
+            {/* {user !== null ? (
               <Link href="/runs" passHref>
                 <StyledLink>Runs</StyledLink>
               </Link>
-            ) : null}
+            ) : null} */}
           </div>
 
           {!user && <LoginButton onClick={login}>Login</LoginButton>}

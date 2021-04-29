@@ -69,7 +69,7 @@ export default function Runs() {
 
   // useEffect(() => {
   //   // redirect them back to the homepage
-  //   if (!user) {
+  // if (!user) {
   //     router.push("/");
   //     console.log("logged out -> home page");
   //   }
