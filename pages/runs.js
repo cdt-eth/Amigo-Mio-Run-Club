@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import AuthContext, { AuthContextProvider } from "../stores/authContext";
@@ -47,6 +47,26 @@ const Accent = styled.span`
   font-style: italic;
 `;
 
+const Error = styled.p`
+  color: red;
+  color: white;
+  background: orange;
+  background: red;
+  padding: 20px;
+  border-radius: 7px;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 5rem;
+  padding-right: 25px;
+  margin: 20px;
+  text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+  }
+`;
+
 const Tag = styled.span`
   color: orange;
   font-weight: 900;
@@ -62,7 +82,9 @@ const Tag = styled.span`
 `;
 
 export default function Runs() {
-  const { user, authReady } = useContext(AuthContext);
+  const { user, authReady, login } = useContext(AuthContext);
+  const [runs, setRuns] = useState(null);
+  const [error, setError] = useState(null);
 
   // next.js router
   const router = useRouter();
@@ -85,10 +107,31 @@ export default function Runs() {
           },
         }
       )
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((res) => {
+          if (!res.ok) {
+            login();
+            throw Error("Login to view your run data.");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setError(null);
+          setRuns(data);
+          console.log("data: ", data);
+          console.log("data[0]: ", data[0]);
+          console.log("data[0].title: ", data[0].title);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setRuns(null);
+        });
     }
   }, [user, authReady]);
+
+  // console.log("runs: ", runs);
+  // console.log("runs[0]: ", runs[0]);
+  // console.log("runs[1]: ", runs[1]);
+  // console.log("runs.title: ", runs.title);
 
   return (
     <>
@@ -116,6 +159,15 @@ export default function Runs() {
         <br />
         <br />
       </Body>
+
+      {!authReady && <Error>Loading...</Error>}
+
+      {error && <Error>{error}</Error>}
+
+      {runs && runs.map((run) => run.title)}
+      <br />
+      {runs && runs.map((run) => run.location)}
+      <br />
 
       <Tag>#ConTodo</Tag>
     </>
