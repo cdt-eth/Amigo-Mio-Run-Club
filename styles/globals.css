@@ -83,3 +83,6 @@ a {
   color: orange;
   transition: 0.3s;
 }
+.callOut {
+  display: none !important;
+}

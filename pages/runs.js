@@ -47,6 +47,14 @@ const Accent = styled.span`
   font-style: italic;
 `;
 
+const Login = styled.span`
+  color: orange !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 const Error = styled.p`
   color: red;
   color: white;
@@ -117,9 +125,9 @@ export default function Runs() {
         .then((data) => {
           setError(null);
           setRuns(data);
-          console.log("data: ", data);
-          console.log("data[0]: ", data[0]);
-          console.log("data[0].title: ", data[0].title);
+          // console.log("data: ", data);
+          // console.log("data[0]: ", data[0]);
+          // console.log("data[0].title: ", data[0].title);
         })
         .catch((err) => {
           setError(err.message);
@@ -127,11 +135,6 @@ export default function Runs() {
         });
     }
   }, [user, authReady]);
-
-  // console.log("runs: ", runs);
-  // console.log("runs[0]: ", runs[0]);
-  // console.log("runs[1]: ", runs[1]);
-  // console.log("runs.title: ", runs.title);
 
   return (
     <>
@@ -152,22 +155,21 @@ export default function Runs() {
         </Heading>
       </Hero>
 
-      <Body>
-        Below you can see your <Accent>Strava</Accent> data from your most
-        recent runs with AMRC. Feel free to add a note about how you feel the
-        run went or anything <Accent>memorable</Accent> from the morning.
-        <br />
-        <br />
-      </Body>
+      {user !== null ? (
+        <Body>
+          Below you can see your <Accent>Strava</Accent> data from your most
+          recent runs with AMRC. Feel free to add a note about how you feel the
+          run went or anything <Accent>memorable</Accent> from the morning.
+        </Body>
+      ) : (
+        <Body>
+          Please <Login onClick={login}>login</Login> to view run data.
+        </Body>
+      )}
 
+      <br />
+      <br />
       {!authReady && <Error>Loading...</Error>}
-
-      {/* {error && <Error>{error}</Error>} */}
-
-      {runs && runs.map((run) => run.title)}
-      <br />
-      {runs && runs.map((run) => run.location)}
-      <br />
 
       <Tag>#ConTodo</Tag>
     </>
