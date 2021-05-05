@@ -162,7 +162,7 @@ export default function Runs() {
 
       {!authReady && <Error>Loading...</Error>}
 
-      {error && <Error>{error}</Error>}
+      {/* {error && <Error>{error}</Error>} */}
 
       {runs && runs.map((run) => run.title)}
       <br />
