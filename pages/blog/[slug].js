@@ -51,13 +51,17 @@ export async function getStaticProps({ params }) {
 export default function BlogContent({ blog }) {
   // if (!blog) return <Loading />;
 
-  const { title, featuredImage, body, miles, runners } = blog.fields;
+  const { title, featuredImage, body, miles, location, runners } = blog.fields;
+
+  // console.log(blog.fields);
 
   return (
     <div style={{ height: "100%", margin: 20 }}>
       <h1>{title}</h1>
 
-      <h2>{miles} miles</h2>
+      <h3>
+        We ({runners.join(", ")}) ran {miles} miles around {location}.
+      </h3>
 
       <img
         className="postImg"
