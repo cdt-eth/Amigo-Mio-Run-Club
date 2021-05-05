@@ -53,6 +53,7 @@ export default function BlogContent({ blog }) {
 
   const { title, featuredImage, body, miles, location, runners } = blog.fields;
 
+  // console.log(runners);
   // console.log(blog.fields);
 
   return (
@@ -60,7 +61,16 @@ export default function BlogContent({ blog }) {
       <h1>{title}</h1>
 
       <h3>
-        We ({runners.join(", ")}) ran {miles} miles around {location}.
+        {runners.length < 2 ? (
+          <span>I, {runners},</span>
+        ) : runners.length === 2 ? (
+          <span>
+            We, {runners[0]} and {runners[1]},
+          </span>
+        ) : (
+          <span>We ({runners.join(", ")})</span>
+        )}{" "}
+        ran {miles} miles around {location}.
       </h3>
 
       <img
