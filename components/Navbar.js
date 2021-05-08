@@ -47,7 +47,6 @@ const StyledUser = styled.a`
   @media only screen and (max-width: 768px) {
     padding: 0rem;
     margin-right: 5px;
-    /* border: 1px solid red; */
   }
 `;
 
@@ -56,7 +55,6 @@ const LoginButton = styled.li`
   list-style-type: none;
   cursor: pointer;
   height: 25px;
-  /* border: 1px solid blue; */
   padding: 0rem 1rem;
 
   &:hover {
@@ -72,9 +70,6 @@ const LoginButton = styled.li`
 
 export default function Navbar() {
   const { user, login, logout, authReady } = useContext(AuthContext);
-  // console.log("Welcome " + user.user_metadata.full_name + "!");
-
-  // console.log({ user });
 
   return (
     <Nav>
@@ -104,12 +99,6 @@ export default function Navbar() {
             <Link href="/runs" passHref>
               <StyledLink>Runs</StyledLink>
             </Link>
-
-            {/* {user !== null ? (
-              <Link href="/runs" passHref>
-                <StyledLink>Runs</StyledLink>
-              </Link>
-            ) : null} */}
           </div>
 
           {!user && <LoginButton onClick={login}>Login</LoginButton>}
@@ -120,7 +109,6 @@ export default function Navbar() {
           )}
         </>
       )}
-      {/* <img className="icon" src="user.png" /> */}
     </Nav>
   );
 }

@@ -11,7 +11,7 @@ const Hero = styled.div`
   align-items: center;
   background: #fff;
   margin: 20px;
-  /* border: 1px solid red; */
+
   @media only screen and (max-width: 768px) {
     height: 55vh;
   }
@@ -125,9 +125,6 @@ export default function Runs() {
         .then((data) => {
           setError(null);
           setRuns(data);
-          // console.log("data: ", data);
-          // console.log("data[0]: ", data[0]);
-          // console.log("data[0].title: ", data[0].title);
         })
         .catch((err) => {
           setError(err.message);
