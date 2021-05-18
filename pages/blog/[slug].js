@@ -53,9 +53,6 @@ export default function BlogContent({ blog }) {
 
   const { title, featuredImage, body, miles, location, runners } = blog.fields;
 
-  // console.log(runners);
-  // console.log(blog.fields);
-
   return (
     <div style={{ height: "100%", margin: 20 }}>
       <h1>{title}</h1>
