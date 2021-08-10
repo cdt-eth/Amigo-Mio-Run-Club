@@ -74,14 +74,6 @@ export default function Home() {
       </Head>
 
       <Img>
-        {/* <Image
-          loader={myLoader}
-          src="/amrc.png"
-          alt="amrc logo"
-          width={100}
-          height={70}
-        /> */}
-        {/* <Image src="/amrc.png" alt="amrc logo" width={100} height={70} /> */}
         <img src="/amrc.png" alt="amrc logo" width={150} height={"auto"} />
       </Img>
 

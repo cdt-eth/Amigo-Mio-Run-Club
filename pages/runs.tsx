@@ -118,7 +118,7 @@ export default function Runs() {
         .then((res) => {
           if (!res.ok) {
             login();
-            throw Error("Login to view your run data.");
+            throw "Login to view your run data.";
           }
           return res.json();
         })

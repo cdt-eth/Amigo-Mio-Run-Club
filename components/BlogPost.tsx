@@ -2,8 +2,31 @@ import Link from "next/link";
 import styled from "styled-components";
 // import Image from "next/image";
 
-export default function BlogPost({ blog }) {
+interface IBlog {
+  blog: {
+    fields: {
+      title: string;
+      slug: string;
+      runners: string[];
+      miles: string;
+      thumbnail: {
+        fields: {
+          file: {
+            url: string;
+          };
+          title: string;
+        };
+      };
+    };
+  };
+}
+
+export default function BlogPost({ blog }: IBlog) {
   const { title, slug, runners, thumbnail, miles } = blog.fields;
+
+  console.log("blog.fields.thumbnail", blog.fields.thumbnail);
+
+  // console.log("blog.fields", blog.fields);
 
   //   const myLoader = ({ src, width, quality }) => {
   //     return `${src}?w=${width}&q=${quality || 75}`;
@@ -49,6 +72,7 @@ export default function BlogPost({ blog }) {
       line-height: 2.6rem;
     } */
   `;
+
   // console.log(runners);
 
   return (
