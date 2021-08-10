@@ -1,8 +1,20 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, MouseEventHandler } from "react";
 import netlifyIdentity from "netlify-identity-widget";
 
+export type ContextProps = {
+  user: {
+    user_metadata: {
+      full_name: string;
+    };
+  };
+  login: MouseEventHandler<HTMLLIElement>;
+  logout: MouseEventHandler<HTMLLIElement>;
+  authReady: boolean;
+  onClick?: any;
+};
+
 // using global context to log in/out user anywhere in the app
-const AuthContext = createContext({
+const AuthContext = createContext<ContextProps>({
   user: null,
   login: () => {},
   logout: () => {},

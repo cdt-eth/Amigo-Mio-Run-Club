@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import AuthContext from "../stores/authContext";
+import { ContextProps } from "../stores/authContext";
 
 const Nav = styled.nav`
   height: 80px;
@@ -69,7 +70,8 @@ const LoginButton = styled.li`
 `;
 
 export default function Navbar() {
-  const { user, login, logout, authReady } = useContext(AuthContext);
+  const { user, login, logout, authReady }: ContextProps =
+    useContext(AuthContext);
 
   return (
     <Nav>
