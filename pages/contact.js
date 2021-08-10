@@ -57,13 +57,14 @@ const Symbol = styled.span`
   width: max-content;
 `;
 
-const URL = styled.span`
+const URL = styled.a`
   display: table-cell;
   display: inherit;
   text-align: left;
 
   &:hover {
     color: orange;
+    cursor: pointer;
   }
 `;
 
@@ -136,7 +137,7 @@ export default function Contact() {
 
         <Row>
           <Property>
-            Gmail <Symbol>@</Symbol>
+            Email <Symbol>@</Symbol>
           </Property>
           <URL href="mailto:amigomiorunclub@gmail.com">amigomiorunclub</URL>
         </Row>
