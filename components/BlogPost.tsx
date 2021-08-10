@@ -23,10 +23,6 @@ interface IBlog {
 export default function BlogPost({ blog }: IBlog) {
   const { title, slug, runners, thumbnail, miles } = blog.fields;
 
-  console.log("blog.fields.thumbnail", blog.fields.thumbnail);
-
-  // console.log("blog.fields", blog.fields);
-
   //   const myLoader = ({ src, width, quality }) => {
   //     return `${src}?w=${width}&q=${quality || 75}`;
   //   };
